@@ -130,7 +130,6 @@ public class MainActivity extends OrmLiteBaseActivity<DatabaseHelper> {
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.main, menu);
 		return true;
 	}
@@ -145,14 +144,7 @@ public class MainActivity extends OrmLiteBaseActivity<DatabaseHelper> {
 
 		// Handle your other action bar items...
 		switch (item.getItemId()) {
-		case R.id.action_add_item: {
-			Intent i = new Intent(this, AddItemActivity.class);
-			startActivity(i);
-			break;
-		}
-		case R.id.action_add_mode: {
-			Intent i = new Intent(this, AddModeActivity.class);
-			startActivity(i);
+		case R.id.action_settings: {
 			break;
 		}
 		}

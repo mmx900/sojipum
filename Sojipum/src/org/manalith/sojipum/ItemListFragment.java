@@ -8,11 +8,13 @@ import org.manalith.sojipum.model.Item;
 import org.manalith.sojipum.model.Mode;
 
 import android.app.Fragment;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.ContextMenu;
 import android.view.ContextMenu.ContextMenuInfo;
 import android.view.LayoutInflater;
 import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
@@ -92,13 +94,47 @@ public class ItemListFragment extends Fragment {
 	}
 
 	@Override
+	public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+		inflater.inflate(R.menu.item_list, menu);
+
+		super.onCreateOptionsMenu(menu, inflater);
+	}
+
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		switch (item.getItemId()) {
+		case R.id.action_add_item: {
+			Intent i = new Intent(getActivity(), AddItemActivity.class);
+			startActivity(i);
+			break;
+		}
+		case R.id.action_add_mode: {
+			Intent i = new Intent(getActivity(), AddModeActivity.class);
+			startActivity(i);
+			break;
+		}
+		case R.id.action_reset: {
+			// XXX
+			// getDao().deleteById((int) item.id);
+			// bindItem();
+			break;
+		}
+		}
+
+		return super.onOptionsItemSelected(item);
+	}
+
+	@Override
 	public void onCreateContextMenu(ContextMenu menu, View v,
 			ContextMenuInfo menuInfo) {
 		if (v.getId() == R.id.listItems) {
 			AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo) menuInfo;
 			menu.setHeaderTitle(items.get(info.position).name);
-			menu.add(Menu.NONE, 0, 0, "수정");
-			menu.add(Menu.NONE, 1, 1, "삭제");
+			menu.add(Menu.NONE, ItemMenu.MODIFY.getId(),
+					ItemMenu.MODIFY.ordinal(), ItemMenu.MODIFY.getName());
+			menu.add(Menu.NONE, ItemMenu.DELETE.getId(),
+					ItemMenu.DELETE.ordinal(), ItemMenu.DELETE.getName());
+
 			// String[] menuItems = getResources().getStringArray(R.array.menu);
 			// for (int i = 0; i < menuItems.length; i++) {
 			// menu.add(Menu.NONE, i, i, menuItems[i]);
@@ -112,18 +148,32 @@ public class ItemListFragment extends Fragment {
 				.getMenuInfo();
 		Item item = items.get(info.position);
 
-		switch (menuItem.getItemId()) {
-		case 0: {
-			break;
-		}
-		case 1: {
+		if (menuItem.getItemId() == ItemMenu.MODIFY.getId()) {
+
+		} else if (menuItem.getItemId() == ItemMenu.DELETE.getId()) {
 			getDao().deleteById((int) item.id);
 			bindItem();
-			break;
-		}
 		}
 
 		return super.onContextItemSelected(menuItem);
+	}
+
+	private enum ItemMenu {
+		MODIFY("수정"), DELETE("삭제");
+
+		private String name;
+
+		ItemMenu(String name) {
+			this.name = name;
+		}
+
+		int getId() {
+			return ordinal();
+		}
+
+		String getName() {
+			return name;
+		}
 	}
 
 	static class ListAdapter extends BaseAdapter {
