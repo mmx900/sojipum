@@ -76,7 +76,7 @@ public class ItemListFragment extends Fragment {
 		long modeId = args == null ? 0 : args.getLong("modeId");
 
 		if (modeId != 0)
-			items = getDao().queryForEq("modeId", modeId);
+			items = getDao().queryForEq("mode_id", modeId);
 		else
 			items = getDao().queryForAll();
 
