@@ -1,0 +1,46 @@
+#
+# generated on 2013/08/20 08:30:06
+#
+# --table-start--
+dataClass=org.manalith.sojipum.Mode
+tableName=mode
+# --table-fields-start--
+# --field-start--
+fieldName=id
+generatedId=true
+# --field-end--
+# --field-start--
+fieldName=name
+indexName=mode_name_idx
+# --field-end--
+# --field-start--
+fieldName=created
+# --field-end--
+# --table-fields-end--
+# --table-end--
+#################################
+# --table-start--
+dataClass=org.manalith.sojipum.Item
+tableName=item
+# --table-fields-start--
+# --field-start--
+fieldName=id
+generatedId=true
+# --field-end--
+# --field-start--
+fieldName=name
+indexName=item_name_idx
+# --field-end--
+# --field-start--
+fieldName=mode
+foreign=true
+# --field-end--
+# --field-start--
+fieldName=carried
+# --field-end--
+# --field-start--
+fieldName=created
+# --field-end--
+# --table-fields-end--
+# --table-end--
+#################################

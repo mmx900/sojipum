@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">소지품</string>
+    <string name="item_name">소지품 이름</string>
+    <string name="mode_name">상태 이름</string>
+    <string name="action_settings">환경설정</string>
+    <string name="action_add_item">아이템 추가</string>
+    <string name="action_add_mode">상태 추가</string>
+    <string name="action_reset">체크 초기화</string>
+    <string name="action_finish">완료</string>
+    <string name="drawer_open">상태 선택</string>
+    <string name="drawer_close">상태 선택 종료</string>
+    <string name="hello_world">소지품을 관리해보자</string>
+    <string name="title_activity_add_item">아이템 추가</string>
+    <string name="title_activity_add_mode">상태 추가</string>
+
+</resources>
