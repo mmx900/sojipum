@@ -1,6 +1,7 @@
 package org.manalith.sojipum;
 
 import org.manalith.sojipum.db.DatabaseHelper;
+import org.manalith.sojipum.model.Mode;
 
 import android.os.Bundle;
 import android.view.Menu;

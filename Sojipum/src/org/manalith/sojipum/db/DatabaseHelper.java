@@ -2,9 +2,9 @@ package org.manalith.sojipum.db;
 
 import java.sql.SQLException;
 
-import org.manalith.sojipum.Item;
-import org.manalith.sojipum.Mode;
 import org.manalith.sojipum.R;
+import org.manalith.sojipum.model.Item;
+import org.manalith.sojipum.model.Mode;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;

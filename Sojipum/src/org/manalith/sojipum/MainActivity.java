@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.manalith.sojipum.db.DatabaseHelper;
+import org.manalith.sojipum.model.Mode;
 
 import android.app.Fragment;
 import android.app.FragmentManager;
